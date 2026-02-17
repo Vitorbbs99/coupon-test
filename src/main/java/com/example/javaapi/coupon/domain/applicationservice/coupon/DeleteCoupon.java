@@ -1,4 +1,4 @@
-package com.example.javaapi.coupon.domain.applicationservice.Coupon;
+package com.example.javaapi.coupon.domain.applicationservice.coupon;
 
 import com.example.javaapi.coupon.domain.entity.Coupon;
 import jakarta.transaction.Transactional;

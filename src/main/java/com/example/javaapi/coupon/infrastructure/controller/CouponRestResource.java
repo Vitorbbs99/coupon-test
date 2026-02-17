@@ -1,7 +1,7 @@
 package com.example.javaapi.coupon.infrastructure.controller;
 
-import com.example.javaapi.coupon.domain.applicationservice.Coupon.CreateCoupon;
-import com.example.javaapi.coupon.domain.applicationservice.Coupon.DeleteCoupon;
+import com.example.javaapi.coupon.domain.applicationservice.coupon.CreateCoupon;
+import com.example.javaapi.coupon.domain.applicationservice.coupon.DeleteCoupon;
 import com.example.javaapi.coupon.domain.entity.Coupon;
 import com.example.javaapi.coupon.infrastructure.dto.CouponDTO;
 import com.example.javaapi.coupon.infrastructure.dto.SaveCouponDTO;

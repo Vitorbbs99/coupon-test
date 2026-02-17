@@ -1,10 +1,7 @@
 package com.example.javaapi.coupon.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -12,9 +9,8 @@ import static jakarta.persistence.GenerationType.UUID;
 
 @Entity
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor()
 @Table(name = "coupon")
 public class Coupon {
 
@@ -40,4 +36,24 @@ public class Coupon {
 
     @Column(name = "deleted", nullable = false)
     private Boolean deleted;
+
+    @Builder
+    public Coupon(String code, String description, Double discountValue, LocalDateTime expirationDate, Boolean published, Boolean deleted) {
+        validate(discountValue, expirationDate);
+        this.code = code;
+        this.description = description;
+        this.discountValue = discountValue;
+        this.expirationDate = expirationDate;
+        this.published = published;
+        this.deleted = deleted;
+    }
+
+    private void validate(double discount, LocalDateTime expiration) {
+        if (expiration.isBefore(LocalDateTime.now())) {
+            throw new IllegalArgumentException("Data inválida");
+        }
+        if (discount < 0.5) {
+            throw new IllegalArgumentException("Desconto insuficiente");
+        }
+    }
 }

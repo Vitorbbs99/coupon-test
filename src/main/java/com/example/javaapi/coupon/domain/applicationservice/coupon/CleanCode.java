@@ -1,4 +1,4 @@
-package com.example.javaapi.coupon.domain.applicationservice.Coupon;
+package com.example.javaapi.coupon.domain.applicationservice.coupon;
 
 public record CleanCode (String code) {
     public CleanCode {

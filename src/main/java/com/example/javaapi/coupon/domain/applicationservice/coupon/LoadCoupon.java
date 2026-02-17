@@ -1,4 +1,4 @@
-package com.example.javaapi.coupon.domain.applicationservice.Coupon;
+package com.example.javaapi.coupon.domain.applicationservice.coupon;
 
 import com.example.javaapi.coupon.domain.entity.Coupon;
 import com.example.javaapi.coupon.domain.exception.CouponNotFoundException;
@@ -15,6 +15,6 @@ public class LoadCoupon {
     public Coupon LoadCoupon (String couponId) {
         return couponRepository
                 .findByIdAndDeleted(couponId, false)
-                .orElseThrow(() -> new CouponNotFoundException("Coupon not found"));
+                .orElseThrow(() -> new CouponNotFoundException("coupon not found"));
     }
 }

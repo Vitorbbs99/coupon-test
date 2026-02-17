@@ -1,4 +1,4 @@
-package com.example.javaapi.coupon.domain.applicationservice.Coupon;
+package com.example.javaapi.coupon.domain.applicationservice.coupon;
 
 import com.example.javaapi.coupon.domain.entity.Coupon;
 import com.example.javaapi.coupon.domain.exception.DuplicateCouponException;
@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Service
@@ -33,8 +34,7 @@ public class CreateCoupon {
                 .deleted(false)
                 .build();
 
-        couponRepository.save(coupon);
-        return coupon;
+        return couponRepository.save(coupon);
     }
 
    private boolean existsCouponWithCode(String code, String idToExclude) {
