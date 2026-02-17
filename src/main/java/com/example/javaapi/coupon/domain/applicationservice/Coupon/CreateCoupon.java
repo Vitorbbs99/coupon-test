@@ -21,9 +21,11 @@ public class CreateCoupon {
             throw new DuplicateCouponException("Esse cupom já existe!");
         }
 
+        CleanCode validatedCode = new CleanCode(saveCouponDTO.getCode());
+
         Coupon coupon = Coupon
                 .builder()
-                .code(saveCouponDTO.getCode())
+                .code(validatedCode.code())
                 .description(saveCouponDTO.getDescription())
                 .discountValue(saveCouponDTO.getDiscountValue())
                 .expirationDate(saveCouponDTO.getExpirationDate())
