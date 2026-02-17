@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface CouponRepository extends JpaRepository<Coupon, String> {
 
     Optional<Coupon> findByCode(String code);
+    Optional<Coupon> findByIdAndDeleted(String id, boolean deleted);
 }
