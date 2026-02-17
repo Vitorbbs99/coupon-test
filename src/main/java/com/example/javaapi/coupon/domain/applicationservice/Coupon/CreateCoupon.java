@@ -1,6 +1,7 @@
 package com.example.javaapi.coupon.domain.applicationservice.Coupon;
 
 import com.example.javaapi.coupon.domain.entity.Coupon;
+import com.example.javaapi.coupon.domain.exception.DuplicateCouponException;
 import com.example.javaapi.coupon.domain.repository.CouponRepository;
 import com.example.javaapi.coupon.infrastructure.dto.SaveCouponDTO;
 import jakarta.transaction.Transactional;
@@ -16,6 +17,9 @@ public class CreateCoupon {
 
     @Transactional
     public Coupon createCoupon(SaveCouponDTO saveCouponDTO) {
+        if (existsCouponWithCode(saveCouponDTO.getCode(), null)) {
+            throw new DuplicateCouponException("Esse cupom já existe!");
+        }
 
         Coupon coupon = Coupon
                 .builder()
@@ -31,10 +35,10 @@ public class CreateCoupon {
         return coupon;
     }
 
-   /* private boolean existsCouponWithCode(String code) {
+   private boolean existsCouponWithCode(String code, String idToExclude) {
         return couponRepository
-                .findBy(code)
-                .filter(c -> !Objects.equals(c.getId()))
-                .is
-    }*/
+                .findByCode(code)
+                .filter(c -> !Objects.equals(c.getId(), idToExclude))
+                .isPresent();
+    }
 }

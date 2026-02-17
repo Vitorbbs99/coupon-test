@@ -15,6 +15,7 @@ import static jakarta.persistence.GenerationType.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "coupon")
 public class Coupon {
 
     @Id
