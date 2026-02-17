@@ -8,7 +8,7 @@ API para gerenciamento de cupons de desconto.
 
 - Java 21 & Spring Boot 3
 - Spring Data JPA & H2 Database 
-- Bean Validation (Jakarta): 
+- Bean Validation (Jakarta)
 - SpringDoc OpenAPI (Swagger)
 - JUnit 5 & Mockito
 - Docker & Docker Compose.
@@ -25,7 +25,7 @@ O projeto foi estruturado seguindo princípios de Domain-Driven Design (DDD) par
 
 Certifique-se de ter o Docker instalado e execute: **docker-compose up --build**.
 
-A API estará disponível em: http://localhost:8080.
+A API estará disponível em: http://localhost:8080
 
 Para explorar e testar os endpoints visualmente, acesse: http://localhost:8080/swagger-ui/index.html
 
