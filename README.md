@@ -32,11 +32,5 @@ Para explorar e testar os endpoints visualmente, acesse: http://localhost:8080/s
 Console H2: 
 
 - URL: http://localhost:8080/h2-console
-- JDBC URL: jdbc:h2:mem:coupondb
+- JDBC URL: jdbc:h2:mem:mydb
 - User: sa | Password: password
-
----
-
-## Possíveis melhorias
-
-**Handing Global de Exceções**: Uso de @ControllerAdvice para tratar erros de domínio e retornar status HTTP apropriados (400, 404, etc).

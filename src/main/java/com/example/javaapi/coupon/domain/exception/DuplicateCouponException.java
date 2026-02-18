@@ -1,7 +1,9 @@
 package com.example.javaapi.coupon.domain.exception;
 
-public class DuplicateCouponException extends RuntimeException {
-  public DuplicateCouponException(String message) {
-    super(message);
+import com.example.javaapi.coupon.infrastructure.exception.RequestException;
+
+public class DuplicateCouponException  extends RequestException {
+  public DuplicateCouponException(String code) {
+      super("CouponDuplicated", "A Coupon with the code already exists: " + code);
   }
 }

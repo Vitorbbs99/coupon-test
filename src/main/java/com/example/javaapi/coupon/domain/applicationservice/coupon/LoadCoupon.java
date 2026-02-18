@@ -15,6 +15,6 @@ public class LoadCoupon {
     public Coupon LoadCoupon (String couponId) {
         return couponRepository
                 .findByIdAndDeleted(couponId, false)
-                .orElseThrow(() -> new CouponNotFoundException("coupon not found"));
+                .orElseThrow(() -> new CouponNotFoundException(couponId));
     }
 }

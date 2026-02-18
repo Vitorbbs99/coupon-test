@@ -18,11 +18,12 @@ public class CreateCoupon {
 
     @Transactional
     public Coupon createCoupon(SaveCouponDTO saveCouponDTO) {
-        if (existsCouponWithCode(saveCouponDTO.getCode(), null)) {
-            throw new DuplicateCouponException("Esse cupom já existe!");
-        }
 
         CleanCode validatedCode = new CleanCode(saveCouponDTO.getCode());
+
+        if (existsCouponWithCode(validatedCode.code(), null)) {
+            throw new DuplicateCouponException(validatedCode.code());
+        }
 
         Coupon coupon = Coupon
                 .builder()
