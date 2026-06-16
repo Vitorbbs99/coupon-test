@@ -38,7 +38,7 @@ public class CreateCoupon {
         return couponRepository.save(coupon);
     }
 
-   private boolean existsCouponWithCode(String code, String idToExclude) {
+   public boolean existsCouponWithCode(String code, String idToExclude) {
         return couponRepository
                 .findByCode(code)
                 .filter(c -> !Objects.equals(c.getId(), idToExclude))
