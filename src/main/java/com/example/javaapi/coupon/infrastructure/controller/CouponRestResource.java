@@ -9,6 +9,10 @@ import com.example.javaapi.coupon.infrastructure.dto.CouponDTO;
 import com.example.javaapi.coupon.infrastructure.dto.SaveCouponDTO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,8 +56,15 @@ public class CouponRestResource {
     }
 
     @GetMapping
-    public ResponseEntity<List<Coupon>> getAll() {
-        List<Coupon> coupons = listCoupons.getAllCoupons();
+    public ResponseEntity<Page<Coupon>> getAll(
+            @RequestParam(value = "code", required = false) String code,
+            @RequestParam(value = "deleted", required = false) Boolean deleted,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+
+        Page<Coupon> coupons = listCoupons.getAllCoupons(code, deleted, pageable);
         return ResponseEntity.ok(coupons);
     }
 
