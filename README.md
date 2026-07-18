@@ -15,9 +15,11 @@ API para gerenciamento de cupons de desconto.
 
 ---
 
-## Arquitetura
+## Arquitetura e Design de Software
 
-O projeto foi estruturado seguindo princípios de Domain-Driven Design (DDD) para garantir um código sustentável e testável.
+- Microsserviços
+- Em camadas
+- Filosofia Domain-Driven Design (DDD).
 
 ---
 
